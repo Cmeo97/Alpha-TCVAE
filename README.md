@@ -89,6 +89,7 @@ All images were $64 \times 64$ RGB. Datasets are typically split with 80% for tr
 ## Training
 
 To train and evaluate the $\alpha$-TCVAE model as presented in the paper use the provided scripts in the repository, specifying $\alpha$-TCVAE as the model and configuring hyperparameters according to the paper.
+
     ```bash
     python train.py --model alpha_tcvae --dataset mpi3d_real --alpha_param 0.25 --latent_dim 10 --epochs 50 
     ```
@@ -111,6 +112,7 @@ Visualizations include:
 -   **Sensitivity analysis plots** for the $\alpha$ hyperparameter (Figures 17, 18, 19, 20 in Appendix H).
 
 **Run evaluation scripts**: After training, use scripts to compute the relevant metrics (FID, Vendi, DCI, SNC, etc.) and generate visualizations.
+
     ```bash
     python evaluate.py --model_checkpoint <path_to_checkpoint> --dataset mpi3d_real --metrics all --visualize_traversals
     ```
