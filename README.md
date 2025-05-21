@@ -8,7 +8,6 @@ This repository contains a PyTorch-based framework and benchmarking suite to fac
 **Table of Contents**:
 
 - [$\alpha$-TCVAE: ON THE RELATIONSHIP BETWEEN DISENTANGLEMENT AND DIVERSITY](#-tcvae-on-the-relationship-between-disentanglement-and-diversity)
-  - [Quick Overview](#quick-overview)
   - [Installation and Requirements](#installation-and-requirements)
   - [Implemented Methods and Metrics](#implemented-methods-and-metrics)
     - [Training Objectives and Architectures](#training-objectives-and-architectures)
@@ -25,12 +24,11 @@ This repository contains a PyTorch-based framework and benchmarking suite to fac
 
 ## Installation and Requirements
 
-This repository was tested and evaluated using standard deep learning libraries. While specific versions are not listed in the paper, a common setup would include:
+To install the required packages you can run:
 
-- Python (e.g., 3.8+)
-- PyTorch (e.g., >=1.10 on GPU)
-
-A suitable Conda environment can typically be set up by running `conda env create -f environment.yaml` (assuming an `environment.yaml` file is provided in the [official repository](https://github.com/Cmeo97/Alpha-TCVAE)).
+  ```bash
+    conda env create -f environment.yaml
+    ```
 
 If you wish to utilize logging with Weights & Biases, ensure you have an account and configure your key as needed.
 
@@ -84,12 +82,10 @@ All images were $64 \times 64$ RGB. Datasets are typically split with 80% for tr
 
 ## Training
 
-Training involves optimizing the VAE models using their respective objective functions. For $\alpha$-TCVAE, this means maximizing the novel TC lower bound defined in Equation 6 of the paper. Key hyperparameters like $\alpha$, $\beta$ (implicitly, as $\alpha$-TCVAE generalizes $\beta$-VAE where for $\alpha=0$ it reduces to $\beta$-VAE ), learning rate, and latent dimensions vary per dataset and are detailed in Table 2 and Appendix B.
-
-Training epochs are typically set to 50 for the datasets used.
-
-Refer to the [official repository](https://github.com/Cmeo97/Alpha-TCVAE) for specific training scripts and command-line arguments.
-
+To train and evaluate the $\alpha$-TCVAE model as presented in the paper use the provided scripts in the repository, specifying $\alpha$-TCVAE as the model and configuring hyperparameters according to the paper.
+    ```bash
+    python train.py --model alpha_tcvae --dataset mpi3d_real --alpha_param 0.25 --latent_dim 10 --epochs 50 
+    ```
 ---
 
 ## Evaluation & Visualization
@@ -107,24 +103,8 @@ Visualizations include:
 -   **Correlation matrices** for different metrics (Figure 7, Figure 10).
 -   **Sensitivity analysis plots** for the $\alpha$ hyperparameter (Figures 17, 18, 19, 20 in Appendix H).
 
----
-
-## Complete Examples
-
-### Training and Evaluating $\alpha$-TCVAE
-
-To train and evaluate the $\alpha$-TCVAE model as presented in the paper, you would typically:
-1.  **Set up the environment**: Clone the [official repository](https://github.com/Cmeo97/Alpha-TCVAE) and install necessary dependencies.
-2.  **Prepare the dataset**: Ensure the desired dataset (e.g., MPI3D-Real) is available and correctly formatted.
-3.  **Run the training script**: Use the provided scripts in the repository, specifying $\alpha$-TCVAE as the model and configuring hyperparameters according to the paper (e.g., from Table 2 and Appendix B for MPI3D-Real: $\alpha=0.25$, $\beta=5$ (this refers to the $\beta$ in $\beta$-VAE, $\alpha$-TCVAE has its own $\alpha$ hyperparameter for the convex combination ), latent dim K=10).
+**Run evaluation scripts**: After training, use scripts to compute the relevant metrics (FID, Vendi, DCI, SNC, etc.) and generate visualizations.
     ```bash
-    # Example 
-    python train.py --model alpha_tcvae --dataset mpi3d_real --alpha_param 0.25 --latent_dim 10 --epochs 50 
-    ```
-    (Note: The paper uses $\alpha$ as the hyperparameter trading off VIB and CEB terms for $\alpha$-TCVAE, and separately refers to a $\beta$ parameter for the $\beta$-VAE and other baselines, often used for the KL divergence weight. For $\alpha$-TCVAE, the value $\alpha=0.25$ is used for experiments in the main paper).
-4.  **Run evaluation scripts**: After training, use scripts to compute the relevant metrics (FID, Vendi, DCI, SNC, etc.) and generate visualizations.
-    ```bash
-    # Example 
     python evaluate.py --model_checkpoint <path_to_checkpoint> --dataset mpi3d_real --metrics all --visualize_traversals
     ```
 
