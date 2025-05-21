@@ -28,7 +28,7 @@ To install the required packages you can run:
 
   ```bash
     conda env create -f environment.yaml
-    ```
+  ```
 
 If you wish to utilize logging with Weights & Biases, ensure you have an account and configure your key as needed.
 
@@ -37,6 +37,8 @@ If you wish to utilize logging with Weights & Biases, ensure you have an account
 ## Implemented Methods and Metrics
 
 This repository contains code to train and evaluate various VAE models, focusing on disentanglement and generative diversity.
+
+---
 
 ### Training Objectives and Architectures
 
@@ -52,6 +54,8 @@ The paper compares $\alpha$-TCVAE against:
 
 Architectural details for encoders and decoders are adopted from Roth et al. (2023). Hyperparameters used are detailed in Table 2 of the paper.
 
+---
+
 ### Metrics
 
 The following metrics were used for evaluation:
@@ -66,6 +70,8 @@ The following metrics were used for evaluation:
 -   **Downstream Task Performance**:
     -   **Attribute Classification Accuracy** using MLP on latent representations.
     -   **Reinforcement Learning (RL) Performance** in the Loconav Ant Maze task using the Director agent (Hafner et al., 2022).
+
+---
 
 ### Benchmarks
 
@@ -86,6 +92,7 @@ To train and evaluate the $\alpha$-TCVAE model as presented in the paper use the
     ```bash
     python train.py --model alpha_tcvae --dataset mpi3d_real --alpha_param 0.25 --latent_dim 10 --epochs 50 
     ```
+    
 ---
 
 ## Evaluation & Visualization
