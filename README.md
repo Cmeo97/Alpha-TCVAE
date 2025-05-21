@@ -1,21 +1,10 @@
 
 This is the official repository for the code associated with the following paper:
 
-[$\alpha$-TCVAE: ON THE RELATIONSHIP BETWEEN DISENTANGLEMENT AND DIVERSITY](https://openreview.net/pdf?id=ptXo0epLQo) , **Cristian Meo, Louis Mahon, Anirudh Goyal, Justin Dauwels,** *Published as a conference paper at ICLR 2024*.
+$\alpha$-TCVAE: On The Relationshipo Between Disentanglement and Diversity (https://openreview.net/pdf?id=ptXo0epLQo) **Published as a conference paper at ICLR 2024**.
 
-This repository contains a *PyTorch-based* framework and benchmarking suite to facilitate research on methods for learning disentangled representations and understanding their relationship with generative diversity. It includes all the code, benchmarks, and method implementations used in the $\alpha$-TCVAE paper.
+This repository contains a PyTorch-based framework and benchmarking suite to facilitate research on methods for learning disentangled representations and understanding their relationship with generative diversity. It includes all the code, benchmarks, and method implementations used in the $\alpha$-TCVAE paper.
 
-If you find it useful or use it for your experiments, consider giving this repository a star, and please cite our paper [  [bibtex]  ](#citing-our-work).
-
-## Quick Overview
-
-Check out [***Implemented Methods and Metrics***](#implemented-methods-and-metrics) for a list of everything implemented and evaluated, and refer to the [***Experiments***](#experiments) section in the paper for detailed examples and setup.
-
-The core of our work, $\alpha$-TCVAE, introduces a novel Total Correlation (TC) lower bound for optimizing variational autoencoders to maximize disentanglement and latent variable informativeness. The implementation can be found in the linked GitHub repository.
-
-To replicate our results, please refer to the [***Experiments***](#experiments) section and the provided codebass.
-
----
 **Table of Contents**:
 
 - [$\alpha$-TCVAE: ON THE RELATIONSHIP BETWEEN DISENTANGLEMENT AND DIVERSITY](#-tcvae-on-the-relationship-between-disentanglement-and-diversity)
